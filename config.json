@@ -1,0 +1,26 @@
+{
+    "services": {
+        "proxy": {
+            "port": 1000
+        },
+        "auth": {
+            "port": 1001
+        },
+        "storage": {
+            "port": 1002
+        },
+        "users": {
+            "port": 1003
+        },
+        "db": {
+            "username": "",
+            "password": "",
+            "host": "",
+            "dbname": "jsa08-project"
+        },
+        "mailer": {
+            "key": "",
+            "domain": ""
+        }
+    }
+}

@@ -31,9 +31,9 @@ api.post('/api/v1/storage', storage.storeFile);
 api.get('/api/v1/storage/:fid', storage.getFile);
 api.get('/api/v1/storage/public/:fid', storage.getPublicFile);
 
-api.listen(cfg.get('server').port, err => {
+api.listen(cfg.get('storage').auth.port, err => {
     if (err) {
         return console.log(err);
     }
-    console.log(`Server succcessfully started on port ${cfg.get('server').port}`)
+    console.log(`Server succcessfully started on port ${cfg.get('storage').auth.port}`)
 });
