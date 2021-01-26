@@ -1,4 +1,4 @@
-const usersModel = require('../../../pkg/users/mongo');
+const usersModel = require('../../../pkg/users');
 const usersValidator = require('../../../pkg/users/validator');
 
 const getAll = async (req, res) => {

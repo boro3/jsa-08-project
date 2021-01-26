@@ -62,7 +62,7 @@ const login = async (req, res) => {
                 email: ru.email,
                 exp: (new Date().getTime() + (365 * 24 * 60 * 60 * 1000)) / 1000
             };
-            let key = cfg.get('server').jwt_key;
+            let key = cfg.get('security').jwt_key;
             let token = jwt.sign(payload, key);
             return res.status(200).send({ jwt: token })
         }
@@ -82,7 +82,7 @@ const refreshToken = (req, res) => {
         email: req.user.email,
         exp: (new Date().getTime() + (365 * 24 * 60 * 60 * 1000)) / 1000
     };
-    let key = cfg.get('server').jwt_key;
+    let key = cfg.get('security').jwt_key;
     let token = jwt.sign(payload, key);
     res.status(200).send({ jwt: token });
 };

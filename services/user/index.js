@@ -11,7 +11,7 @@ const api = express();
 
 api.use(bodyParser.json());
 api.use(jwt({
-    secret: cfg.get('server').jwt_key,
+    secret: cfg.get('security').jwt_key,
     algorithms: ['HS256']
 }));
 api.use(function (err, req, res, next) {
@@ -27,9 +27,9 @@ api.put('/users/:id', users.update);
 api.patch('/users/:id', users.updatePartial);
 api.delete('/users/:id', users.remove);
 
-api.listen(cfg.get('users').auth.port, err => {
+api.listen(cfg.get('services').users.port, err => {
     if (err) {
         return console.error(err);
     }
-    console.log(`Server successfully started on port ${cfg.get('users').auth.port}`);
+    console.log(`Server successfully started on port ${cfg.get('services').users.port}`);
 });

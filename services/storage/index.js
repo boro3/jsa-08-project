@@ -11,7 +11,7 @@ const api = express();
 
 api.use(bodyParser.json());
 api.use(jwt({
-    secret: cfg.get('server').jwt_key,
+    secret: cfg.get('security').jwt_key,
     algorithms: ['HS256']
 }).unless({
     path: [
@@ -31,9 +31,9 @@ api.post('/api/v1/storage', storage.storeFile);
 api.get('/api/v1/storage/:fid', storage.getFile);
 api.get('/api/v1/storage/public/:fid', storage.getPublicFile);
 
-api.listen(cfg.get('storage').auth.port, err => {
+api.listen(cfg.get('services').storage.port, err => {
     if (err) {
         return console.log(err);
     }
-    console.log(`Server succcessfully started on port ${cfg.get('storage').auth.port}`)
+    console.log(`Server succcessfully started on port ${cfg.get('services').storage.port}`)
 });

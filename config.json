@@ -1,26 +1,29 @@
 {
     "services": {
         "proxy": {
-            "port": 1000
+            "port": 10000
         },
         "auth": {
-            "port": 1001
+            "port": 10001
         },
         "storage": {
-            "port": 1002
+            "port": 10002
         },
         "users": {
-            "port": 1003
+            "port": 10003
         },
         "db": {
-            "username": "",
-            "password": "",
-            "host": "",
-            "dbname": "jsa08-project"
+            "username": "borce_ss",
+            "password": "boro!759",
+            "host": "cluster0.vw2pn.mongodb.net",
+            "dbname": "users"
         },
         "mailer": {
             "key": "",
             "domain": ""
         }
+    },
+    "security":{
+        "jwt_key" : "secretp4swword"
     }
 }

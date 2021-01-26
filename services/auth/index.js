@@ -1,4 +1,5 @@
 const cfg = require('../../pkg/config');
+const auth = require('./handlers/auth')
 require('../../pkg/db');
 
 
@@ -10,13 +11,13 @@ const api = express();
 
 api.use(bodyParser.json());
 api.use(jwt({
-    secret: cfg.get('server').jwt_key,
+    secret: cfg.get('security').jwt_key,
     algorithms: ['HS256']
 }).unless({
     path: [
         { url: '/api/v1/auth', methods: ['POST'] },
         { url: '/api/v1/auth/login', methods: ['POST'] },
-        { url: 'api/v1/auth/forgot-password', methods: ['POST'] },
+        { url: '/api/v1/auth/forgot-password', methods: ['POST'] },
         { url: '/api/v1/auth/reset-password', methods: ['POST'] },
     ]
 }));
@@ -36,10 +37,10 @@ api.post('/api/v1/auth/login', auth.login);
 api.get('/api/v1/auth/refresh-token', auth.refreshToken);
 
 //* forgoten password
-api.post('api/v1/auth/forgot-password', auth.forgotPassword);
+api.post('/api/v1/auth/forgot-password', auth.forgotPassword);
 
 //* reset password
-api.post('api/v1/auth/reset-password', auth.resetPassword);
+api.post('/api/v1/auth/reset-password', auth.resetPassword);
 
 // change password
 api.post('/api/v1/auth/change-password', auth.changePassword);
@@ -52,5 +53,5 @@ api.listen(cfg.get('services').auth.port, err => {
     if (err) {
         console.error('Could not start server!', err);
     }
-    console.log('Server successfully started on port', cfg.get('services').auth.port);
+    console.log(`Server successfully started on port ${cfg.get('services').auth.port}`);
 });
