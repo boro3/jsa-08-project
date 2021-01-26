@@ -13,8 +13,8 @@
             "port": 10003
         },
         "db": {
-            "username": "",
-            "password": "",
+            "username": "borce_ss",
+            "password": "boro!759",
             "host": "cluster0.vw2pn.mongodb.net",
             "dbname": "users"
         },
@@ -24,6 +24,6 @@
         }
     },
     "security":{
-        "jwt_key" : ""
+        "jwt_key" : "secretp4swword"
     }
 }

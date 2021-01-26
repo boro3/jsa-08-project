@@ -20,12 +20,12 @@ api.use(function (err, req, res, next) {
     }
 });
 
-api.get('/users', users.getAll);
-api.get('/users/:id', users.getOne);
-api.post('/users', users.save);
-api.put('/users/:id', users.update);
-api.patch('/users/:id', users.updatePartial);
-api.delete('/users/:id', users.remove);
+api.get('/api/v1/users', users.getAll);
+api.get('/api/v1/users/:id', users.getOne);
+api.post('/api/v1/users', users.save);
+api.put('/api/v1/users/:id', users.update);
+api.patch('/api/v1/users/:id', users.updatePartial);
+api.delete('/api/v1/users/:id', users.remove);
 
 api.listen(cfg.get('services').users.port, err => {
     if (err) {
