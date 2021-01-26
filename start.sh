@@ -1,8 +1,8 @@
 
-cd public
-npm install
-npm run build
-cd -
+#cd public
+#npm install
+#npm run build
+#cd -
 
 # START SERVICES
 node services/auth/index.js &
