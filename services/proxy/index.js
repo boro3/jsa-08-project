@@ -5,6 +5,12 @@ const path = require('path');
 
 const app = express();
 
+app.use((req,res,next)=>{
+  console.log(req.url);
+  console.log(req.path);
+  next();
+});
+
 app.use('/api/v1/auth', proxy(
   'http://localhost:10001',
   { proxyReqPathResolver: (req) => `http://localhost:10001/api/v1/auth${req.url}` }
